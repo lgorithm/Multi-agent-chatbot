@@ -22,6 +22,15 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
 
+    # Debugging step: Print environment variables
+    - name: Print environment variables
+      run: |-
+        echo "OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}"
+        echo "TAVILY_API_KEY=${{ secrets.TAVILY_API_KEY }}"
+        echo "LANGCHAIN_API_KEY=${{ secrets.LANGCHAIN_API_KEY }}"
+        echo "LANGCHAIN_PROJECT=${{ secrets.LANGCHAIN_PROJECT }}"
+        echo "LANGCHAIN_TRACING_V2=${{ secrets.LANGCHAIN_TRACING_V2 }}"
+
     # Setup gcloud CLI
     - id: 'auth'
       uses: 'google-github-actions/auth@v2'

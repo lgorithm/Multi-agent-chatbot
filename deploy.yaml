@@ -15,10 +15,6 @@ spec:
       containers:
       - name: agent-container
         image: gcr.io/PROJECT_ID/IMAGE:TAG
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
         ports:
         - containerPort: 80
         env:
