@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: agent-deploy
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: agent-pod
+  template:
+    metadata:
+      labels:
+        app: agent-pod
+    spec:
+      containers:
+      - name: agent-container
+        image: uncodeit/agent:v0
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
+        env:
+        - name: OPENAI_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: openai-secret
+              key: OPENAI_KEY
+        - name: TAVILY_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: tavily-secret
+              key: TAVILY_KEY
+        - name: LANGCHAIN_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: langchain-secret
+              key: LANGCHAIN_KEY
+        - name: LANGCHAIN_PROJECT
+          valueFrom:
+            secretKeyRef:
+              name: langchain-project
+              key: PROJECT
+        - name: LANGCHAIN_TRACING_V2
+          valueFrom:
+            secretKeyRef:
+              name: langchain-tracing-v2
+              key: TRACING
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: agent-svc
+spec:
+  type: LoadBalancer
+  selector:
+    app: agent-pod
+  ports:
+  - port: 80 # Service IP Port
+    targetPort: 8501 # Container Port
