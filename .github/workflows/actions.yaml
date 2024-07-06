@@ -62,7 +62,7 @@ jobs:
         kubectl create secret generic openai-secret --from-literal=OPENAI_KEY=${{secrets.OPENAI_API_KEY}} || true
         kubectl create secret generic tavily-secret --from-literal=TAVILY_KEY=${{secrets.TAVILY_API_KEY}} || true
         kubectl create secret generic langchain-secret --from-literal=LANGCHAIN_KEY=${{secrets.LANGCHAIN_API_KEY}} || true
-        kubectl create secret generic langchain-project --from-literal=PROJECT=${{secrets.LANGCHAIN_PROJECT}} || true
+        kubectl create secret generic langchain-project --from-literal=PROJECT_NAME=${{secrets.LANGCHAIN_PROJECT}} || true
         kubectl create secret generic langchain-tracing-v2 --from-literal=TRACING=${{secrets.LANGCHAIN_TRACING_V2}} || true
 
 

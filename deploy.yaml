@@ -41,7 +41,7 @@ spec:
           valueFrom:
             secretKeyRef:
               name: langchain-project
-              key: PROJECT
+              key: PROJECT_NAME
         - name: LANGCHAIN_TRACING_V2
           valueFrom:
             secretKeyRef:
