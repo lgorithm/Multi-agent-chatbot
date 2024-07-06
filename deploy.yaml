@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: agent-container
-        image: uncodeit/agent:v0
+        image: gcr.io/PROJECT_ID/IMAGE:TAG
         resources:
           limits:
             memory: "128Mi"
