@@ -16,7 +16,7 @@ spec:
       - name: agent-container
         image: gcr.io/PROJECT_ID/IMAGE:TAG
         ports:
-        - containerPort: 80
+        - containerPort: 8501
         env:
         - name: OPENAI_API_KEY
           valueFrom:
@@ -55,5 +55,5 @@ spec:
   selector:
     app: agent-pod
   ports:
-  - port: 80 # Service IP Port
+  - port: 8501 # Service IP Port
     targetPort: 8501 # Container Port

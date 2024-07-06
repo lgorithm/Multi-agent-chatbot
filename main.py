@@ -23,7 +23,7 @@ load_dotenv()
 history = StreamlitChatMessageHistory(key="chat_history")
 
 if len(history.messages) == 0:
-    history.add_ai_message("How can I help you?")
+    history.add_ai_message("Hi, I'm Tina. How can I help you?")
 st_callback = StreamlitCallbackHandler(st.container())
 
 def main():
@@ -61,7 +61,7 @@ def main():
         ),
     ]
 
-    prompt = base_prompt.partial(instructions="You are a helpful agent with access to several tools, including Python agent and Tavily Agent . For questions about Programming, You should use the Python agent tool. For general knowledge questions, You should use the Tavily Agent tool.")
+    prompt = base_prompt.partial(instructions="Your name is Tina and You are a helpful agent with access to several tools, including Python agent and Tavily Agent . For questions about Programming, You should use the Python agent tool. For general knowledge questions, You should use the Tavily Agent tool.")
     grand_agent = create_react_agent(
         prompt=prompt,
         llm=ChatOpenAI(temperature=0, model="gpt-4-turbo"),
