@@ -1,3 +1,4 @@
+![alt text](homepage.png)
 # Multi-Agent Chatbot
 
 **Multi-Agent Chatbot** is a sophisticated chatbot application that leverages multiple agents to handle different types of queries. It integrates with LangChain, OpenAI, and various tools to deliver accurate and helpful responses. This application is built using Streamlit and is deployed on Google Kubernetes Engine with continuous integration using GitHub Actions. Monitoring is facilitated through Langsmith.
