@@ -7,7 +7,7 @@ on:
 
 env:
   PROJECT_ID: ${{ secrets.GKE_PROJECT }}
-  GKE_CLUSTER: multi-agents-query-solver  # Add your cluster name here.
+  GKE_CLUSTER: multi-agent-chatbot  # Add your cluster name here.
   GKE_ZONE: us-central1  # Add your cluster zone here.
   DEPLOYMENT_NAME: agent-deploy # Add your deployment name here.
   IMAGE: agent # Image Name
